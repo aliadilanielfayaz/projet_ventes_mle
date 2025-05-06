@@ -1,15 +1,24 @@
+[build-system]
+
+
+requires = ["poetry-core>=1.0.0"] # Spécifie que Poetry est utilisé pour le build
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
-name = "projet_ventes_mle"
+name = "projet-ventes-mle" # Nom du package pour PyPI, peut être différent du nom du répertoire
 version = "0.1.0"
-description = ""
-authors = ["aliadilanielfayaz <aliadilanielfayaz@yahoo.fr>"]
+description = "Projet d'analyse et prédiction des tendances de vente"
+authors = ["aliadilanielfayaz <aliadilanielfayaz@yahoo.fr>"] # Remplacez par vos informations
+readme = "README.rst" # Ou README.md si vous prévoyez de changer le format
+
+# Indique à Poetry où trouver le package principal.
+# Votre structure est /projet_ventes_mle/projet_ventes_mle/ donc c'est correct.
+packages = [{include = "projet_ventes_mle"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8" # Ou la version de Python que vous ciblez (ex: ^3.9, ~3.10)
+fastapi = "^0.109.0" # Poetry installera la dernière version compatible avec cette contrainte
+uvicorn = {extras = ["standard"], version = "^0.27.0"} # Idem
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+pytest = "^5.2" # Déplacé ici et activé
