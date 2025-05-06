@@ -19,6 +19,9 @@ packages = [{include = "projet_ventes_mle"}]
 python = "^3.8" # Ou la version de Python que vous ciblez (ex: ^3.9, ~3.10)
 fastapi = "^0.109.0" # Poetry installera la dernière version compatible avec cette contrainte
 uvicorn = {extras = ["standard"], version = "^0.27.0"} # Idem
+pandas = "==2.0.3" # Cible une version spécifique de pandas compatible Python 3.8
+numpy = "==1.23.5" # Cible une version spécifique de numpy compatible Python 3.8 et pandas 2.0.3
+
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
