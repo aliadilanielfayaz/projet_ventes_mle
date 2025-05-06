@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 name = "projet-ventes-mle" # Nom du package pour PyPI, peut être différent du nom du répertoire
 version = "0.1.0"
 description = "Projet d'analyse et prédiction des tendances de vente"
-authors = ["aliadilanielfayaz <aliadilanielfayaz@yahoo.fr>"] # Remplacez par vos informations
+authors = ["aliadilanielfayaz <aliadilanie21@gmail.com>","aliadilanielfayaz <aliadilanielfayaz@yahoo.fr>"]
 readme = "README.rst" # Ou README.md si vous prévoyez de changer le format
 
 # Indique à Poetry où trouver le package principal.
@@ -21,4 +21,6 @@ fastapi = "^0.109.0" # Poetry installera la dernière version compatible avec ce
 uvicorn = {extras = ["standard"], version = "^0.27.0"} # Idem
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2" # Déplacé ici et activé
+pytest = "^5.2"
+psycopg2-binary = "^2.9.9" # Pour la connexion à PostgreSQL
+python-dotenv = "^1.0.0" # Pour charger les variables d'environnement depuis un fichier .env
