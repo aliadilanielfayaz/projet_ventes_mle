@@ -48,10 +48,10 @@ def extract_sales_data(conn):
         so.date_order,
         so.partner_id AS customer_id,
         rp.name AS customer_name,
-        sol.product_id,
-        COALESCE(pt.name->>'en_US', pt.name->>(jsonb_object_keys(pt.name) LIMIT 1)) AS product_name, -- Tente 'en_US' puis la première clé
+        sol.product_id,        
+        COALESCE(pt.name->>'fr_FR', pt.name->>'en_US') AS product_name, -- Tente 'fr_FR' puis 'en_US'
         pp.default_code AS product_default_code,
-        COALESCE(pc.name->>'en_US', pc.name->>(jsonb_object_keys(pc.name) LIMIT 1)) AS product_category_name, -- Idem
+        pc.name AS product_category_name, -- product_category.name est probablement un champ texte standard
         sol.product_uom_qty AS quantity,
         sol.price_unit,
         sol.discount,
